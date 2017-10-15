@@ -1,0 +1,21 @@
+2017-10-15 23:36:45,877 [main]: INFO  BallDataValidator - Radius (5.0) is valid.
+2017-10-15 23:36:45,879 [main]: INFO  BallDataValidator - Radius (10.0) is valid.
+2017-10-15 23:36:45,969 [main]: DEBUG BallDataValidator - Invalid amount of parameters (2).
+2017-10-15 23:36:45,976 [main]: INFO  BallDataValidator - Amount of parameters (42) is valid.
+2017-10-15 23:36:45,985 [main]: DEBUG BallDataValidator - Invalid delimiter string size (0).
+2017-10-15 23:36:46,003 [main]: INFO  BallDataValidator - Delimiter "\s" is valid.
+2017-10-15 23:36:46,018 [main]: DEBUG BallDataValidator - String is invalid. "42z" is not a double.
+2017-10-15 23:36:46,028 [main]: INFO  BallDataValidator - String is valid, -0.42 is double.
+2017-10-15 23:36:46,036 [main]: DEBUG BallDataValidator - Invalid radius (0.0).
+2017-10-15 23:36:46,039 [main]: INFO  BallDataValidator - Radius (42.0) is valid.
+2017-10-15 23:36:46,062 [main]: INFO  BallAction - Ball[radius=5.0, centre(x=0.0, y=0.0, z=0.0)] volume is 523.5987755982989
+2017-10-15 23:36:46,062 [main]: INFO  BallAction - Ball[radius=5.0, centre(x=0.0, y=0.0, z=0.0)] is divided by a plane "xy" at the point 0 in the ratio: 1.0
+2017-10-15 23:36:46,081 [main]: INFO  BallAction - Ball[radius=5.0, centre(x=0.0, y=0.0, z=0.0)] surface area is 314.1592653589793
+2017-10-15 23:36:46,087 [main]: INFO  BallAction - Ball[radius=5.0, centre(x=0.0, y=0.0, z=0.0)] volume is 523.5987755982989
+2017-10-15 23:36:46,093 [main]: INFO  BallAction - Ball[radius=10.0, centre(x=0.0, y=0.0, z=10.0)] volume is 4188.790204786391
+2017-10-15 23:36:46,094 [main]: INFO  BallAction - Ball[radius=10.0, centre(x=0.0, y=0.0, z=10.0)] is divided by a plane "xy" at the point 0 in the ratio: 0.0
+2017-10-15 23:36:46,112 [main]: INFO  BallAction - Ball[radius=10.0, centre(x=0.0, y=0.0, z=10.0)] surface area is 1256.6370614359173
+2017-10-15 23:36:46,114 [main]: INFO  BallAction - Ball[radius=10.0, centre(x=0.0, y=0.0, z=10.0)] volume is 4188.790204786391
+2017-10-15 23:36:46,128 [main]: INFO  BallDataValidator - Radius (5.0) is valid.
+2017-10-15 23:36:46,131 [main]: INFO  BallAction - Ball[radius=5.0, centre(x=0.0, y=0.0, z=0.0)] doesn't touch any plane.
+2017-10-15 23:36:46,132 [main]: INFO  BallAction - Ball[radius=10.0, centre(x=0.0, y=0.0, z=10.0)] touches the plane.
