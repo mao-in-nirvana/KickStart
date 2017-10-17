@@ -21,23 +21,30 @@ public class BallStringParser {
 
     public Point extractPointFromString(String string)
             throws DataTechnicalException {
+        if (!validator.delimiterValidator(DEFAULT_DELIMITER)) {
+            throw new DataTechnicalException("Invalid delimiter. The line was skipped.");
+        }
         String[] strings = string.split(DEFAULT_DELIMITER, BallDataValidator.getAmountOfParameters());
-        if (!validator.validator(strings, DEFAULT_DELIMITER)) {
-            throw new DataTechnicalException("Invalid input data. The line was skipped.");
-        } else {
+        if (validator.validator(strings)) {
             return new Point(Double.parseDouble(strings[1]),
                     Double.parseDouble(strings[2]),
                     Double.parseDouble(strings[3]));
+
+        } else {
+            throw new DataTechnicalException("Invalid input data. The line was skipped.");
         }
     }
 
     public double extractRadiusFromString(String string)
             throws DataTechnicalException {
+        if (!validator.delimiterValidator(DEFAULT_DELIMITER)) {
+            throw new DataTechnicalException("Invalid delimiter. The line was skipped.");
+        }
         String[] strings = string.split(DEFAULT_DELIMITER, BallDataValidator.getAmountOfParameters());
-        if (!validator.validator(strings, DEFAULT_DELIMITER)) {
-            throw new DataTechnicalException("Invalid input data. The line was skipped.");
-        } else {
+        if (validator.validator(strings)) {
             return Double.parseDouble(strings[0]);
+        } else {
+            throw new DataTechnicalException("Invalid input data. The line was skipped.");
         }
     }
 

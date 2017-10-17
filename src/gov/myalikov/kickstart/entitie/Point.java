@@ -12,10 +12,6 @@ public class Point {
     private double y;
     private double z;
 
-    public Point() {
-
-    }
-
     public Point(double newX, double newY, double newZ) {
         x = newX;
         y = newY;
@@ -69,10 +65,7 @@ public class Point {
         if (Double.compare(point.getX(), getX()) != 0) {
             return false;
         }
-        if (Double.compare(point.getY(), getY()) != 0) {
-            return false;
-        }
-        return Double.compare(point.getZ(), getZ()) == 0;
+        return Double.compare(point.getY(), getY()) == 0 && Double.compare(point.getZ(), getZ()) == 0;
     }
 
     @Override

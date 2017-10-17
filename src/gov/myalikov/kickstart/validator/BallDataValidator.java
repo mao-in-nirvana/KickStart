@@ -33,16 +33,6 @@ public class BallDataValidator {
         }
     }
 
-    public boolean amountOfParametersValidator(int amountOfParameters) {
-        if (amountOfParameters >= AMOUNT_OF_PARAMETERS) {
-            logger.log(Level.INFO, "Amount of parameters (" + amountOfParameters + ") is valid.");
-            return true;
-        } else {
-            logger.log(Level.DEBUG, "Invalid amount of parameters (" + amountOfParameters + ").");
-            return false;
-        }
-    }
-
     public boolean delimiterValidator(String delimiter) {
         if (delimiter.length() > 0) {
             logger.log(Level.INFO, "Delimiter \"" + delimiter + "\" is valid.");
@@ -53,7 +43,18 @@ public class BallDataValidator {
         }
     }
 
-    public boolean doubleInStringValidator(String string) {
+    private boolean amountOfParametersValidator(int amountOfParameters) {
+        if (amountOfParameters >= AMOUNT_OF_PARAMETERS) {
+            logger.log(Level.INFO, "Amount of parameters (" + amountOfParameters + ") is valid.");
+            return true;
+        } else {
+            logger.log(Level.DEBUG, "Invalid amount of parameters (" + amountOfParameters + ").");
+            return false;
+        }
+    }
+
+
+    private boolean doubleInStringValidator(String string) {
         String DOUBLE_PATTERN_REGEX = "(-*\\d+\\.\\d+)";
         Pattern pattern = Pattern.compile(DOUBLE_PATTERN_REGEX);
         if (pattern.matcher(string).matches()) {
@@ -65,34 +66,34 @@ public class BallDataValidator {
         }
     }
 
+
+
     /**
      * validator
      * <p>
-     * Validates all data in
-     * string and delimiter.
-     * Uses all validator methods.
+     * Validates all data in string.
+     * Uses all validator methods
+     * except delimiter validator.
      *
      * @param strings
-     * @param delimiter
      * @return
      */
-    public boolean validator(String[] strings, String delimiter) {
-        if (!delimiterValidator(delimiter)) {
-            return false;
-        } else if (!amountOfParametersValidator(strings.length)) {
-            return false;
+    public boolean validator(String[] strings) {
+        boolean valid = true;
+        if (!amountOfParametersValidator(strings.length)) {
+            valid = false;
         } else if (!doubleInStringValidator(strings[0])) {
-            return false;
+            valid = false;
         } else if (!radiusValidator(Double.parseDouble(strings[0]))) {
-            return false;
+            valid = false;
         } else {
             for (int i = 1; i < strings.length; i++) {
                 if (!doubleInStringValidator(strings[i])) {
-                    return false;
+                    valid = false;
                 }
             }
         }
-        return true;
+        return valid;
     }
 
 }

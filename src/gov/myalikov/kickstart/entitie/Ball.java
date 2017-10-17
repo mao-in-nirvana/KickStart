@@ -13,14 +13,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class Ball {
-    static final Logger LOGGER = LogManager.getLogger(Ball.class);
+    private static Logger logger = LogManager.getLogger(Ball.class);
     private double radius;
     private Point point;
     private BallDataValidator validator = new BallDataValidator();
-
-    public Ball() {
-
-    }
 
     public Ball(double newRadius, double newX, double newY, double newZ) {
         this.point = new Point(newX, newY, newZ);
@@ -31,7 +27,7 @@ public class Ball {
                 throw new ParameterTechnicalException();
             }
         } catch (ParameterTechnicalException e) {
-            LOGGER.error("Wrong parameter for constructor.");
+            logger.error("Wrong parameter for constructor.");
         }
     }
 
@@ -44,7 +40,7 @@ public class Ball {
                 throw new ParameterTechnicalException();
             }
         } catch (ParameterTechnicalException e) {
-            LOGGER.error("Wrong parameter for constructor.");
+            logger.error("Wrong parameter for constructor.");
         }
     }
 
@@ -60,7 +56,7 @@ public class Ball {
                 throw new ParameterTechnicalException();
             }
         } catch (ParameterTechnicalException e) {
-            LOGGER.error("Wrong parameter for radius setter.");
+            logger.error("Wrong parameter for radius setter.");
         }
     }
 
@@ -91,10 +87,7 @@ public class Ball {
 
         Ball ball = (Ball) o;
 
-        if (Double.compare(ball.getRadius(), getRadius()) != 0) {
-            return false;
-        }
-        return (point != null ? point.equals(ball.point) : ball.point == null);
+        return Double.compare(ball.getRadius(), getRadius()) == 0 && (point != null ? point.equals(ball.point) : ball.point == null);
     }
 
     @Override
